@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Update Data Mahasiswa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+    crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2>Form Update Data Mahasiswa</h2>
+        <form method="post" action="/update">
+            <div class="mb-3">
+                <label for="nim" class="form-label">NIM:</label>
+                <input type="text" class="form-control" id="nim" name="nim" value="{{ nim }}" readonly required>
+            </div>
+            <div class="mb-3">
+                <label for="nama" class="form-label">Nama:</label>
+                <input type="text" class="form-control" id="nama" name="nama" value="{{ nama }}" required>
+            </div>
+            <div class="row mb-3">
+                <div class="col-8">
+                    <label for="prodi" class="form-label">Program Studi: </label>
+                    <select class="form-select" id="prodi" name="prodi">
+                        <option value="Teknik Informatika" {% if prodi == 'Teknik Informatika' %} selected {% endif %}>Teknik Informatika</option>
+                        <option value="Sistem Informasi" {% if prodi == 'Sistem Informasi' %} selected {% endif %}>Sistem Informasi</option>
+                        <option value="Teknik Elektro" {% if prodi == 'Teknik Elektro' %} selected {% endif %}>Teknik Elektro</option>
+                        <option value="Psikologi" {% if prodi == 'Psikologi' %} selected {% endif %}>Psikologi</option>
+                    </select>
+                </div>
+                <div class="col-4">
+                    <label for="tahun_masuk" class="form-label">Tahun Masuk:</label>
+                    <select class="form-select" id="tahun_masuk" name="tahun_masuk">
+                        <option value="2018" {% if tahun_masuk == '2018' %} selected {% endif %}>2018</option>
+                        <option value="2019" {% if tahun_masuk == '2019' %} selected {% endif %}>2019</option>
+                        <option value="2020" {% if tahun_masuk == '2020' %} selected {% endif %}>2020</option>
+                        <option value="2021" {% if tahun_masuk == '2021' %} selected {% endif %}>2021</option>
+                        <option value="2022" {% if tahun_masuk == '2022' %} selected {% endif %}>2022</option>
+                        <option value="2023" {% if tahun_masuk == '2023' %} selected {% endif %}>2023</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="alamat" class="form-label">Alamat:</label>
+                <textarea class="form-control" id="alamat" name="alamat" rows="4">{{ alamat }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+        <a type="submit" class="mt-3 btn btn-secondary" href="/">Data</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

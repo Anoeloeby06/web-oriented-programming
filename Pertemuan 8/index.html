@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest Client</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1>Rest Client dan JQuery</h1>
+        <div class="mb-5"></div>
+        <!-- Button Triggered AJAX Call -->
+        <button type="button" id="addButton" class="btn btn-success">Ambil Data</button>
+        <div class="mb-5"></div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Data Diri REST SERVER</h5>
+                <div id="data">
+                    <h2 class="text-center"> ---Nothing Data--- </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+            crossorigin="anonymous"></script>    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $('#addButton').click(function(event) {
+                $.ajax({
+                    url: 'https://jsonplaceholder.typicode.com/posts',
+                    type: 'GET',
+                    dataType: 'JSON',
+                    success: function (data) {
+                        let table = '<table class="table table-striped"> <thead> <tr> <th scope="col" width="10%"> Post ID </th> <th scope="col">body </th> </tr> </thead> <tbody>';
+                        $.each(data, function(index, val) {
+                            table += `<tr><td>${val.id}</td><td>${val.title}</td><td>${val.body}</td></tr>`;
+                        });
+                        table += '</tbody></table>';
+                        $('#data').html(table);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

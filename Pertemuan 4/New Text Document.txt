@@ -1,0 +1,3 @@
+INSERT INTO `users`(`id`, `username`, `password`, `email`) VALUES ('','jibril',23456789,'jibril@gmail.com')
+
+ALTER TABLE table_name AUTO_INCREMENT = start_value; table_name.
